@@ -28,9 +28,7 @@ public class Person {
     }
     
     public void setAge(int age) {
-        if (age > 0 && age < 100) {
-            this.age = age;
-        }
+        this.age = age;
     }
     
     public boolean isAdult() {
@@ -44,16 +42,16 @@ public class Person {
     
     public static void main(String[] args) {
         Person[] persons = {
-            new Person("John Smith", 18),
             new Person("Alice Johnson", 19),
             new Person("Bob Wilson", 17),
-            new Person("Emma Davis", 18),
-            new Person("Mike Brown", 19),
-            new Person("Sarah Miller", 17),
             new Person("David Garcia", 19),
-            new Person("Lisa Anderson", 18),
+            new Person("Emma Davis", 18),
             new Person("James Taylor", 17),
-            new Person("Maria Rodriguez", 19)
+            new Person("John Smith", 18),
+            new Person("Lisa Anderson", 18),
+            new Person("Maria Rodriguez", 19),
+            new Person("Mike Brown", 19),
+            new Person("Sarah Miller", 17)
         };
         
         System.out.println("STUDENT MANAGEMENT SYSTEM");

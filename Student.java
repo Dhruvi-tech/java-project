@@ -51,16 +51,16 @@ public class Student extends Person {
     
     public static void main(String[] args) {
         Student[] students = {
-            new Student("John Smith", 18, "S001", 85.5),
-            new Student("Alice Johnson", 19, "S002", 92.0),
-            new Student("Bob Wilson", 17, "S003", 67.5),
+            new Student("Alice Johnson", 19, "S001", 92.0),
+            new Student("Bob Wilson", 17, "S002", 67.5),
+            new Student("David Garcia", 19, "S003", 63.5),
             new Student("Emma Davis", 18, "S004", 78.0),
-            new Student("Mike Brown", 19, "S005", 95.0),
-            new Student("Sarah Miller", 17, "S006", 45.0),
-            new Student("David Garcia", 19, "S007", 63.5),
-            new Student("Lisa Anderson", 18, "S008", 88.0),
-            new Student("James Taylor", 17, "S009", 72.5),
-            new Student("Maria Rodriguez", 19, "S010", 58.0)
+            new Student("James Taylor", 17, "S005", 72.5),
+            new Student("John Smith", 18, "S006", 85.5),
+            new Student("Lisa Anderson", 18, "S007", 88.0),
+            new Student("Maria Rodriguez", 19, "S008", 58.0),
+            new Student("Mike Brown", 19, "S009", 95.0),
+            new Student("Sarah Miller", 17, "S010", 45.0)
         };
         
         System.out.println("STUDENT MANAGEMENT SYSTEM");
