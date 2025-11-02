@@ -3,7 +3,7 @@
  * 1. Compile: javac Person.java
  * 2. Run: java Person
  * 
- * Last updated: December 2024
+ * Last updated: November 2025
  * Contributor: Dhruvi
  */
 public class Person {

@@ -3,7 +3,7 @@
  * 1. Compile: javac Teacher.java
  * 2. Run: java Teacher
  * 
- * Last updated: December 2024
+ * Last updated: November 2025
  * Contributor: Dhruvi
  */
 public class Teacher extends Person {
