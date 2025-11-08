@@ -1,42 +1,66 @@
-import java.time.LocalDateTime;
-
+/*
+ * Student Management System - Main Class
+ * Author: Dhruvi
+ * Last edited: November 2025
+ * 
+ * HOW TO RUN:
+ * 1. Compile: javac Person.java Student.java Teacher.java CustomException.java DataValidator.java StudentData.java Main.java
+ * 2. Run: java Main
+ * 
+ * This program demonstrates:
+ * - Classes and Inheritance (Person -> Student/Teacher)
+ * - Exception Handling (CustomException)
+ * - File I/O (StudentData)
+ * - Data Validation (DataValidator)
+ * - Pass/Fail functionality for students
+ */
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Program started at: " + LocalDateTime.now());
         try {
-            // Create students with ages 18-21
-            Student s1 = new Student("John Doe", 18, "STU001", 75);
-            Student s2 = new Student("Jane Smith", 19, "STU002", 45);
-            Student s3 = new Student("Mike Johnson", 20, "STU003", 85);
-            Student s4 = new Student("Sarah Wilson", 21, "STU004", 35);
+            String[] names = {"Alice Brown", "Andrew Davis", "Anna Garcia", "Anthony Howard", "Benjamin Lee", 
+                            "Charlotte Cook", "Christopher Reed", "Daniel Sanchez", "David Wilson", "Emily Wood", 
+                            "Emma Rodriguez", "Ethan Miller", "Grace Taylor", "Harper Kelly", "Isabella Ramirez", 
+                            "James Anderson", "Jane Smith", "John Doe", "Joshua Bailey", "Kevin Gonzalez", 
+                            "Lisa Davis", "Matthew Torres", "Mia Flores", "Michael Johnson", "Olivia Hernandez", 
+                            "Ryan Lopez", "Sarah Martinez", "Sophia Perez", "Steven Richardson", "William Moore"};
             
-            // Validate student IDs
-            DataValidator.isValidStudentId(s1.getStudentId());
-            DataValidator.isValidStudentId(s2.getStudentId());
-            DataValidator.isValidStudentId(s3.getStudentId());
-            DataValidator.isValidStudentId(s4.getStudentId());
+            System.out.println("\n╔═══════════════════════════════════════════════════════════════════════════════╗");
+            System.out.println("║                                  STUDENTS RECORD                                 ║");
+            System.out.println("╠══════╦══════════════════════╦═══════╦═══════════╦═══════╦═══════════════════════╣");
+            System.out.println("║ No.  ║ Name                 ║ Age   ║ ID        ║ Marks ║ Status                ║");
+            System.out.println("╠══════╬══════════════════════╬═══════╬═══════════╬═══════╬═══════════════════════╣");
             
-            // Save students to file
-            StudentData.saveStudent(s1);
-            StudentData.saveStudent(s2);
-            StudentData.saveStudent(s3);
-            StudentData.saveStudent(s4);
+            for (int i = 0; i < 30; i++) {
+                Student student = new Student(names[i], 18 + (i % 4), "STU" + String.format("%03d", i + 1), 30 + (i * 2.5) % 70);
+                DataValidator.isValidStudentId(student.getStudentId());
+                StudentData.saveStudent(student);
+                
+                System.out.printf("║ %-4d ║ %-20s ║ %-5d ║ %-9s ║ %-5.0f ║ %-21s ║%n", 
+                    i + 1, student.getName(), student.getAge(), student.getStudentId(), 
+                    student.getMarks(), student.getStatus());
+            }
+            System.out.println("╚══════╩══════════════════════╩═══════╩═══════════╩═══════╩═══════════════════════╝");
             
-            // Display students
-            System.out.println("Students:");
-            System.out.println(s1);
-            System.out.println(s2);
-            System.out.println(s3);
-            System.out.println(s4);
+            String[] teacherNames = {"Dr. Anderson", "Prof. Brown", "Ms. Davis", "Dr. Garcia", "Mr. Johnson", 
+                                   "Prof. Miller", "Ms. Rodriguez", "Dr. Smith", "Mr. Taylor", "Prof. Wilson"};
+            String[] subjects = {"Biology", "Chemistry", "Computer Science", "Economics", "English", 
+                               "Geography", "History", "Mathematics", "Physics", "Psychology"};
             
-            // Create teacher
-            Teacher t1 = new Teacher("Dr. Smith", 35, "Mathematics");
-            System.out.println("\nTeacher:");
-            System.out.println(t1);
+            System.out.println("\n╔═══════════════════════════════════════════════════════════════════╗");
+            System.out.println("║                              TEACHERS RECORD                              ║");
+            System.out.println("╠══════╦══════════════════════╦═══════╦═══════════════════════════════╣");
+            System.out.println("║ No.  ║ Name                 ║ Age   ║ Subject                       ║");
+            System.out.println("╠══════╬══════════════════════╬═══════╬═══════════════════════════════╣");
+            
+            for (int i = 0; i < 10; i++) {
+                Teacher teacher = new Teacher(teacherNames[i], 30 + (i * 3), subjects[i]);
+                System.out.printf("║ %-4d ║ %-20s ║ %-5d ║ %-29s ║%n", 
+                    i + 1, teacher.getName(), teacher.getAge(), teacher.getSubject());
+            }
+            System.out.println("╚══════╩══════════════════════╩═══════╩═══════════════════════════════╝");
             
         } catch (CustomException e) {
             System.err.println("Error: " + e.getMessage());
         }
-        System.out.println("Program ended at: " + LocalDateTime.now());
     }
 }
