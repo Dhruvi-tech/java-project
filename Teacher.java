@@ -1,3 +1,8 @@
+/*
+ * Teacher Class - Extends Person, adds subject
+ * Author: Dhruvi
+ * Last edited: November 2025
+ */
 public class Teacher extends Person {
     private String subject;
     
