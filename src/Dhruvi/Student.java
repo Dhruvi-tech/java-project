@@ -4,6 +4,8 @@
  * Date: November 2025
  */
 
+package Dhruvi;
+
 public class Student extends Person {
     private String studentID;
     private double marks;
