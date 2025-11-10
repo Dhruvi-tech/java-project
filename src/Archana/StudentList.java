@@ -1,28 +1,38 @@
-import java.util.*;
+/*
+ * StudentList.java - Manages a collection of students.
+ * Part of Module 4: Collections.
+ * Author: Archana
+ * Date: November 2025
+ */
+
+package Archana;
+
+import Dhruvi.Student;
+import java.util.ArrayList;
+import java.util.List;
 
 public class StudentList {
-    private ArrayList<Student> students = new ArrayList<>();
+    private List<Student> students;
+
+    public StudentList() {
+        students = new ArrayList<>();
+    }
 
     public void addStudent(Student s) {
         students.add(s);
     }
 
-    public ArrayList<Student> getStudents() {
-        return students;
+    public List<Student> getStudents() {
+        // Return a copy to prevent external modification of the internal list
+        return new ArrayList<>(students);
     }
 
     public void displayStudents() {
-        System.out.println("Student List:");
-        for (Student s : students) {
-            System.out.println(s);
+        System.out.println("--- Displaying All Students ---");
+        if (students.isEmpty()) {
+            System.out.println("No students in the list.");
         }
-    }
-
-    public static void main(String[] args) {
-        StudentList list = new StudentList();
-        list.addStudent(new Student(1, "Archana", 88));
-        list.addStudent(new Student(2, "Rahul", 75));
-        list.addStudent(new Student(3, "Priya", 92));
-        list.displayStudents();
+        students.forEach(Student::displayInfo);
+        System.out.println("-----------------------------");
     }
 }

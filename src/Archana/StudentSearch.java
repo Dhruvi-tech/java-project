@@ -1,30 +1,36 @@
-import java.util.*;
+/*
+ * StudentSearch.java - Provides search functionalities for students.
+ * Part of Module 4: Collections.
+ * Author: Archana
+ * Date: November 2025
+ */
+
+package Archana;
+
+import Dhruvi.Student;
+import java.util.List;
+import java.util.Optional;
 
 public class StudentSearch {
-    public static Student searchById(ArrayList<Student> students, int id) {
-        for (Student s : students) {
-            if (s.getId() == id) {
-                return s;
-            }
-        }
-        return null;
+
+    /**
+     * Searches for a student by their name.
+     * @param students The list of students to search in.
+     * @param name The name to search for.
+     * @return An Optional containing the found Student, or an empty Optional.
+     */
+    public static Optional<Student> findStudentByName(List<Student> students, String name) {
+        return students.stream()
+                .filter(s -> s.getName().equalsIgnoreCase(name))
+                .findFirst();
     }
 
-    public static Student searchByName(ArrayList<Student> students, String name) {
-        for (Student s : students) {
-            if (s.getName().equalsIgnoreCase(name)) {
-                return s;
-            }
-        }
-        return null;
-    }
-
-    public static void main(String[] args) {
-        StudentList list = new StudentList();
-        list.addStudent(new Student(1, "Archana", 88));
-        list.addStudent(new Student(2, "Rahul", 75));
-
-        Student found = searchByName(list.getStudents(), "Archana");
-        System.out.println(found != null ? "Found: " + found : "Student not found!");
+    /**
+     * Searches for a student by their ID.
+     */
+    public static Optional<Student> findStudentByID(List<Student> students, String studentID) {
+        return students.stream()
+                .filter(s -> s.getStudentID().equals(studentID))
+                .findFirst();
     }
 }
