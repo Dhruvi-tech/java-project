@@ -29,7 +29,6 @@
 - [✨ Features](#-features)
 - [🚀 How to Run](#-how-to-run)
 - [📂 Project Structure](#-project-structure)
-- [📸 Screenshots](#-screenshots)
 - [🤝 Contributing](#-contributing)
 
 ---
